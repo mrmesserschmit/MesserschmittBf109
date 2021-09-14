@@ -1,9 +1,10 @@
+from tkinter.constants import TRUE
 from attack import attack
 import PySimpleGUI as sg
  
 sg.theme('Black')   # Add a touch of color 
 # All the stuff inside your window.
-layout = [  [sg.Image('plane.png')],
+layout = [  [sg.Image('plane.png'), sg.Text('Messerschmitt BF 109')],
             [sg.Text('URL'), sg.InputText()],
             [sg.Text('Threads'), sg.InputText()],
             [sg.Button('Attack'), sg.Button('Cancel')]   ]
